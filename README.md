@@ -26,15 +26,17 @@ dependencyResolutionManagement {
 
 ```kotlin
 // app/build.gradle.kts
-implementation("com.github.esendprovider.esendpulse-android:esendpulse:0.1.0")
+implementation("com.github.esendprovider:esendpulse-android:v0.1.0")
 ```
 
 JitPack builds the tag itself — no account, no upload and no GPG key — which is
 why this publication has no `repositories {}` block to point anywhere. The
-coordinate is JitPack's own shape (`com.github.<owner>.<repo>:<module>`) rather
-than the `com.esendpulse:esendpulse-android` in the POM; that one starts
-resolving the day the same publication goes to Maven Central, which is the same
-build plus Sonatype credentials and signing.
+coordinate is JitPack's, not the `com.esendpulse:esendpulse-android` in the POM,
+and the version is the tag including its `v`. Because `jitpack.yml` publishes a
+single module, JitPack maps it to `com.github.<owner>:<repo>` rather than the
+`com.github.<owner>.<repo>:<module>` form a multi-module build would produce.
+The POM coordinate starts resolving the day the same publication goes to Maven
+Central, which is this build plus Sonatype credentials and signing.
 
 `./gradlew :esendpulse:publishToMavenLocal` puts it in `~/.m2` with a sources
 jar and a full POM, which is what JitPack runs and what to use while testing a
