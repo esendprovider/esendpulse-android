@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Stars, as buttons.
+
+  Five notification actions would be the obvious way to do this and Android
+  shows only three of them, so the stars are a custom layout instead — which
+  also lets them look like stars rather than like three words in a row.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/esendpulse_rating_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/esendpulse_rating_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/esendpulse_star_1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@android:drawable/btn_star_big_off"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/esendpulse_star_2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@android:drawable/btn_star_big_off"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/esendpulse_star_3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@android:drawable/btn_star_big_off"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/esendpulse_star_4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@android:drawable/btn_star_big_off"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/esendpulse_star_5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:src="@android:drawable/btn_star_big_off"
+            android:contentDescription="@null" />
+    </LinearLayout>
+</LinearLayout>

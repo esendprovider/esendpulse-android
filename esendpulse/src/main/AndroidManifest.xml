@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <!--
+          Every control on a rich notification — the carousel arrows, the
+          stars, the reply field, the buttons — points here rather than at an
+          activity, so a tap can be recorded and the notification redrawn
+          without the app being opened. Declared by the library so the host app
+          does not have to remember to, and not exported: nothing outside this
+          app has any business sending it anything.
+        -->
+        <receiver
+            android:name="com.esendpulse.sdk.EsendPulsePushReceiver"
+            android:exported="false" />
+        <!--
+          Geofencing: system ki location updates (PendingIntent) yahan aati hain,
+          app band ho tab bhi. Location permissions yahan jaan-boojh kar NAHI hain —
+          jo app geofencing chalu karta hai wahi unhe apne manifest mein likhe
+          (background location Play Store review laata hai).
+        -->
+        <receiver
+            android:name="com.esendpulse.sdk.EsendPulseLocationReceiver"
+            android:exported="false" />
+        <!--
+          Pull notifications (PushPull): the periodic job that fetches pushes an
+          OEM build stopped FCM from delivering. Only runs when the app turned
+          `pullNotifications` on.
+        -->
+        <service
+            android:name="com.esendpulse.sdk.EsendPulsePullJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false" />
+    </application>
+</manifest>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The expanded carousel.
+
+  RemoteViews can only hold a handful of widget types, so this is the whole
+  vocabulary available: a ViewFlipper for the auto-advancing case, an ImageView
+  for the manual one, and two ImageButtons that broadcast back to the SDK.
+  Anything cleverer — a pager, a gesture, a dot indicator that moves — is not
+  something a notification is allowed to draw.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/esendpulse_carousel_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textStyle="bold"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/esendpulse_carousel_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="13sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginTop="8dp">
+
+        <ImageView
+            android:id="@+id/esendpulse_carousel_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null" />
+
+        <ViewFlipper
+            android:id="@+id/esendpulse_carousel_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <ImageButton
+            android:id="@+id/esendpulse_carousel_prev"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center_vertical|start"
+            android:background="@null"
+            android:src="@android:drawable/ic_media_previous"
+            android:contentDescription="@null" />
+
+        <ImageButton
+            android:id="@+id/esendpulse_carousel_next"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_gravity="center_vertical|end"
+            android:background="@null"
+            android:src="@android:drawable/ic_media_next"
+            android:contentDescription="@null" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/esendpulse_carousel_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="12sp" />
+</LinearLayout>

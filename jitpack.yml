@@ -1,0 +1,17 @@
+# How JitPack builds this SDK from a tag.
+#
+# JitPack clones the mirror repository (sdks/push-mirrors.sh puts sdks/android
+# at its root), runs the install command below, and serves whatever landed in
+# the local Maven repository. That is why there is no `repositories {}` block
+# in the publication: nothing is uploaded anywhere, so there is nowhere to
+# point it. Maven Central would be the opposite — an upload, with credentials
+# and GPG signing on top of the same publication.
+#
+# Only `:esendpulse` is built. `./gradlew build` would also build `:example`,
+# which is a demo app that nobody installs and whose failure would be reported
+# as the SDK failing to publish.
+jdk:
+  - openjdk17
+
+install:
+  - ./gradlew :esendpulse:publishToMavenLocal
